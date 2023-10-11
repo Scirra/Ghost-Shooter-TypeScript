@@ -1,0 +1,61 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 925968795203355,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 101,
+						"height": 101,
+						"originX": 0.504951,
+						"originY": 0.504951,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 0,
+						"collisionPoly": {
+							"points": [
+								0.0606436,
+								0.220297,
+								0.414604,
+								0,
+								0.842822,
+								0.497525,
+								0.49505,
+								0.970297,
+								0.164604,
+								0.79703,
+								0.019802,
+								0.49505
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Imagepoint 1",
+								"x": 1.0495,
+								"y": 0.504951
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 317133651136821,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

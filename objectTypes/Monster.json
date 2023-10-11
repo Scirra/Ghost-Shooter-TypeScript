@@ -1,0 +1,54 @@
+{
+	"name": "Monster",
+	"plugin-id": "Sprite",
+	"sid": 848848299690882,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 142,
+						"height": 102,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3,
+						"collisionPoly": {
+							"points": [
+								0.389085,
+								0.318627,
+								0.980634,
+								0.102941,
+								0.739437,
+								0.5,
+								0.963028,
+								0.872549,
+								0.420775,
+								0.754902,
+								0.0211268,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 134178707653074,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
