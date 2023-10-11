@@ -3,7 +3,10 @@
 import Globals from "./globals.js";
 import * as Utils from "./utilities.js";
 
-export function Tick(runtime)
+// TypeScript note: import the MonsterInstance class so it can be used as a type
+import MonsterInstance from "./monster.js";
+
+export function Tick(runtime: IRuntime)
 {
 	// The tick event runs every frame. The game needs to be advanced
 	// by the amount of time in delta-time, also known as dt.
@@ -14,7 +17,8 @@ export function Tick(runtime)
 	
 	// Next handle all monster's movement. Note this calls a method in
 	// the custom MonsterInstance class defined in Monster.js.
-	for (const monsterInstance of runtime.objects.Monster.instances())
+	// TypeScript note: iterate Monster instances as the custom MonsterInstance class.
+	for (const monsterInstance of runtime.objects.Monster.instances<MonsterInstance>())
 	{
 		monsterInstance.Move();
 	}
@@ -39,11 +43,11 @@ export function Tick(runtime)
 	}
 	
 	// Finally, always display score in the status text object.
-	const statusTextInstance = runtime.objects.Status.getFirstInstance();
+	const statusTextInstance = runtime.objects.Status.getFirstInstance()!;
 	statusTextInstance.text = "Score: " + Globals.score;
 }
 
-function MovePlayer(runtime)
+function MovePlayer(runtime: IRuntime)
 {
 	// Use a playerInst local variable as a shorthand way to refer to
 	// the playerInstance global variable in this function, since
@@ -51,7 +55,7 @@ function MovePlayer(runtime)
 	// reference runtime.keyboard and runtime.dt.
 	const playerInst = Globals.playerInstance;
 	const dt = runtime.dt;
-	const keyboard = runtime.keyboard;
+	const keyboard = runtime.keyboard!;
 	
 	// The player is destroyed if a monster catches them. Don't try to
 	// handle the player movement if the only instance was destroyed.
@@ -88,12 +92,12 @@ function MovePlayer(runtime)
 	runtime.layout.scrollTo(playerInst.x, playerInst.y);
 	
 	// Always make the player look in the direction of the mouse cursor
-	const mouse = runtime.mouse;
+	const mouse = runtime.mouse!;
 	playerInst.angle = Utils.angleTo(playerInst.x, playerInst.y,
 									 mouse.getMouseX(), mouse.getMouseY());
 }
 
-function MoveBullet(inst, dt)
+function MoveBullet(inst: InstanceType.Bullet, dt: number)
 {
 	// Move bullets forward at their angle at a speed of 600 pixels per second.
 	// This is similar to the Bullet behavior's movement.
@@ -102,7 +106,7 @@ function MoveBullet(inst, dt)
 	inst.y += Math.sin(inst.angle) * speed * dt;
 }
 
-function CheckBulletHitMonster(bulletInstance, runtime)
+function CheckBulletHitMonster(bulletInstance: InstanceType.Bullet, runtime: IRuntime)
 {
 	// Save a reference to the Explosion object type to help
 	// keep the code short and readable.
@@ -111,7 +115,7 @@ function CheckBulletHitMonster(bulletInstance, runtime)
 	// Check if a bullet has collided with any monster. To do this it
 	// must check against every Monster instance. This is similar to
 	// what the 'Is overlapping' condition does.
-	for (const monsterInstance of runtime.objects.Monster.instances())
+	for (const monsterInstance of runtime.objects.Monster.instances<MonsterInstance>())
 	{
 		// Test if the bullet instance overlaps this monster instance,
 		// indicating a collision.
@@ -140,7 +144,7 @@ function CheckBulletHitMonster(bulletInstance, runtime)
 	}
 }
 
-function FadeExplosion(inst, dt)
+function FadeExplosion(inst: InstanceType.Explosion, dt: number)
 {
 	// Fade out explosions over 0.5 seconds, and destroy it once it
 	// becomes invisible. This is similar to the Fade behavior.
@@ -150,7 +154,7 @@ function FadeExplosion(inst, dt)
 		inst.destroy();
 }
 
-export function OnMouseDown(e, runtime)
+export function OnMouseDown(e: MouseEvent, runtime: IRuntime)
 {
 	// The left mouse button is number 0. Ignore any other mouse buttons.
 	if (e.button !== 0)
@@ -172,7 +176,7 @@ export function OnMouseDown(e, runtime)
 	bulletInstance.angle = playerInst.angle;
 }
 
-export function OnKeyDown(e, runtime)
+export function OnKeyDown(e: KeyboardEvent, runtime: IRuntime)
 {
 	// Pressing space when the player is destroyed restarts the game.
 	if (!Globals.playerInstance && e.key === " ")
