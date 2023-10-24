@@ -3,6 +3,8 @@ This is the [Ghost Shooter Code](https://editor.construct.net/#open=ghost-shoote
 
 [This commit](https://github.com/Scirra/Ghost-Shooter-TypeScript/commit/24fe366ce4db861b222b6b3dc9a694a6a1a999b6) shows how to update JavaScript code to be compatible with TypeScript. It may be a useful reference for the kinds of changes that need to be made to update other existing JavaScript-based projects to TypeScript.
 
+To learn more about using TypeScript in Construct, see the guide [Using TypeScript in Construct](https://www.construct.net/en/tutorials/using-typescript-construct-3003).
+
 ## Get the files
 To get the files, click the green *Code* button and choose *Download ZIP*. Extract the ZIP contents to a folder on your system. Then use Construct's *Open local project folder* option and select the folder where the project files are.
 
