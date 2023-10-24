@@ -27,7 +27,7 @@ runOnStartup(async runtime =>
 							 () => OnBeforeProjectStart(runtime));
 });
 
-function OnBeforeProjectStart(runtime)
+function OnBeforeProjectStart(runtime: IRuntime)
 {
 	// Just before the project starts, add a "beforelayoutstart" event
 	// handler to set up the initial state of the layout. This is also
@@ -52,7 +52,7 @@ function OnBeforeProjectStart(runtime)
 
 // This is called every time the layout starts, just before 'On start of
 // layout'. Set up the initial state of the layout.
-function OnBeforeLayoutStart(runtime)
+function OnBeforeLayoutStart(runtime: IRuntime)
 {
 	// Store the only Player and GameOverText instances as globals.
 	// Note this is done every time the layout is started, since restarting
@@ -61,10 +61,13 @@ function OnBeforeLayoutStart(runtime)
 	Globals.gameOverTextInstance = runtime.objects.GameOverText.getFirstInstance();
 	
 	// Hide the "Game over" text.
-	Globals.gameOverTextInstance.isVisible = false;
+	// TypeScript note: the 'property!' syntax is used to tell TypeScript that the
+	// property will not be null. It's used in a few places where we know something
+	// won't be null, but the type is optional as it depends on the runtime state.
+	Globals.gameOverTextInstance!.isVisible = false;
 	
 	// Start all monsters pointing at a random angle.
-	for (const monsterInstance of runtime.objects.Monster.instances())
+	for (const monsterInstance of runtime.objects.Monster.instances<MonsterInstance>())
 	{
 		monsterInstance.angleDegrees = runtime.random() * 360;
 	}
