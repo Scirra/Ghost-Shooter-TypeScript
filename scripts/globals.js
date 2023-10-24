@@ -1,4 +1,3 @@
-
 // This module is used as a way to define global variables.
 // In modules, a top-level variable declaration is only accessible within the
 // same module, so that doesn't work for defining global variables.
@@ -10,16 +9,17 @@
 // directly exported. Therefore we export a global object, with properties
 // to represent global variables. Any script can import globals.js and access
 // Globals.score etc., including writing to them.
-
 const Globals = {
-	score: 0,				// current player score
-	monsterSpeed: 80,		// current speed of monsters
-	
-	// There is only ever one instance of Player and GameOverText.
-	// They are stored here for convenience to make it easier to access them.
-	playerInstance: null,
-	gameOverTextInstance: null
+    score: 0,
+    monsterSpeed: 80,
+    // There is only ever one instance of Player and GameOverText.
+    // They are stored here for convenience to make it easier to access them.
+    // TypeScript note: with the object syntax used here, the initial 'null'
+    // values would normally deduce the type as 'null', meaning it can only
+    // ever hold the value 'null'! Use the <Type> syntax to override the
+    // type so we can force them to be optional references to instances.
+    playerInstance: null,
+    gameOverTextInstance: null
 };
-
 // Export the object representing global variables.
 export default Globals;
