@@ -17,12 +17,8 @@ const Globals = {
 	
 	// There is only ever one instance of Player and GameOverText.
 	// They are stored here for convenience to make it easier to access them.
-	// TypeScript note: with the object syntax used here, the initial 'null'
-	// values would normally deduce the type as 'null', meaning it can only
-	// ever hold the value 'null'! Use the <Type> syntax to override the
-	// type so we can force them to be optional references to instances.
-	playerInstance: <InstanceType.Player | null> null,
-	gameOverTextInstance: <InstanceType.GameOverText | null> null
+	playerInstance: null,
+	gameOverTextInstance: null
 };
 
 // Export the object representing global variables.

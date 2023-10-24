@@ -6,21 +6,12 @@ import * as Utils from "./utilities.js";
 // This is a custom class used to represent instances of the Monster
 // object type in JavaScript code. Note the call to setInstanceClass()
 // in runOnStartup in Main.js, which tells Construct to use this class
-// instead of the default.
-// Note the class must derive from the default class InstanceType.Monster.
+// instead of the default, which is ISpriteInstance for Sprite objects.
+// Note the class must derive from the default class ISpriteInstance.
 // This is a very useful way to add custom logic to objects in your
 // game, since you can easily add new properties and functions.
-// TypeScript note: make sure custom instance classes derive from the
-// instance-specific types under the InstanceType namespace, since
-// Construct generates specific instance types for every object type.
-export default class MonsterInstance extends InstanceType.Monster
+export default class MonsterInstance extends globalThis.ISpriteInstance
 {
-	// TypeScript note: TypeScript requires class properties to be
-	// declared with their type outside the constructor like this,
-	// so it knows ahead of time what class properties are available.
-	health: number;
-	speed: number;
-
 	constructor()
 	{
 		super();
@@ -34,7 +25,7 @@ export default class MonsterInstance extends InstanceType.Monster
 	
 	// This is called every 3 seconds to create a new monster just
 	// outside the right edge of the layout.
-	static Create(runtime: IRuntime)
+	static Create(runtime)
 	{
 		runtime.objects.Monster.createInstance("Main",
 								1500, runtime.random() * 1024);
@@ -89,7 +80,7 @@ export default class MonsterInstance extends InstanceType.Monster
 				// that won't affect the global.
 				Globals.playerInstance = null;
 
-				Globals.gameOverTextInstance!.isVisible = true;
+				Globals.gameOverTextInstance.isVisible = true;
 			}
 		}
 	}

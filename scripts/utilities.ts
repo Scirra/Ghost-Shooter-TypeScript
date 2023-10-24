@@ -5,19 +5,19 @@
 // import all of them, or specific methods only, etc.
 
 // Calculate the angle in radians between two points.
-export function angleTo(x1: number, y1: number, x2: number, y2: number)
+export function angleTo(x1, y1, x2, y2)
 {
 	return Math.atan2(y2 - y1, x2 - x1);
 }
 
 // Calculate the distance between two points.
-export function distanceTo(x1: number, y1: number, x2: number, y2: number)
+export function distanceTo(x1, y1, x2, y2)
 {
 	return Math.hypot(x2 - x1, y2 - y1);
 }
 
 // Test if a given instance is outside the bounds of the layout.
-export function IsOutsideLayout(inst: ISpriteInstance)
+export function IsOutsideLayout(inst)
 {
 	const layout = inst.layout;
 	return inst.x < 0 || inst.y < 0 ||
@@ -25,14 +25,14 @@ export function IsOutsideLayout(inst: ISpriteInstance)
 }
 
 // Convert x from degrees to radians.
-export function toRadians(x: number)
+export function toRadians(x)
 {
 	return x * (Math.PI / 180);
 }
 
 // Rotate from angle 'start' towards angle 'end' by the angle
 // 'step' (all in radians).
-export function angleRotate(start: number, end: number, step: number)
+export function angleRotate(start, end, step)
 {
 	const ss = Math.sin(start);
 	const cs = Math.cos(start);
