@@ -1,7 +1,7 @@
 # Ghost Shooter TypeScript
 This is the [Ghost Shooter Code](https://editor.construct.net/#open=ghost-shooter-code) Construct example, which is originally written in JavaScript, but ported to [TypeScript](https://www.typescriptlang.org/). It serves to demonstrate how TypeScript can be used for writing code in Construct. This project requires Construct 3 r362+.
 
-[This commit](https://github.com/Scirra/Ghost-Shooter-TypeScript/commit/24fe366ce4db861b222b6b3dc9a694a6a1a999b6) shows how to update JavaScript code to be compatible with TypeScript. It may be a useful reference for the kinds of changes that need to be made to update other existing JavaScript-based projects to TypeScript.
+[This commit](https://github.com/Scirra/Ghost-Shooter-TypeScript/commit/7e66f276f91a2c542340b86b271a5989989dd384) shows how to update JavaScript code to be compatible with TypeScript. It may be a useful reference for the kinds of changes that need to be made to update other existing JavaScript-based projects to TypeScript.
 
 To learn more about using TypeScript in Construct, see the guide [Using TypeScript in Construct](https://www.construct.net/en/tutorials/using-typescript-construct-3003).
 
